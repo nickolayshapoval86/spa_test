@@ -13,7 +13,7 @@ class RedditService
     /** @var Client */
     private $client;
 
-    /** @var int */
+    /** @var string */
     private $lastRedditId;
 
     /** @var int */
