@@ -4,6 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property-read int id
+ * @property string username
+
+ * @property-read Post posts
+ */
 class User extends Model
 {
     /**
@@ -17,6 +23,6 @@ class User extends Model
 
     public function posts()
     {
-        return $this->hasMany('App\Post');
+        return $this->hasMany(Post::class);
     }
 }

@@ -4,6 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property-read int id
+ * @property string reddit_id
+ * @property string headline
+ * @property string content
+ * @property int user_id
+ * @property bool is_deleted
+
+ * @property-read User user
+ */
 class Post extends Model
 {
     /**
@@ -17,6 +27,6 @@ class Post extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class);
     }
 }
