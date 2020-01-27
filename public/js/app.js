@@ -1992,7 +1992,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   name: "PostsTable",
   mounted: function mounted() {
-    this.$store.dispatch("GET_POSTS");
+    if (!this.posts.length) {
+      this.$store.dispatch("GET_POSTS");
+    }
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["posts"]))
 });
@@ -54216,7 +54218,6 @@ var actions = {
     var commit = _ref.commit;
     commit('START_LOADING');
     axios["delete"]('/api/posts/' + id).then(function (res) {
-      console.log(res.data.data);
       commit('GET_POSTS', res.data.data);
     })["catch"](function (err) {
       console.log(err);
@@ -54226,7 +54227,6 @@ var actions = {
     var commit = _ref2.commit;
     commit('START_LOADING');
     axios.get('/api/posts').then(function (res) {
-      console.log(res.data.data);
       commit('GET_POSTS', res.data.data);
     })["catch"](function (err) {
       console.log(err);

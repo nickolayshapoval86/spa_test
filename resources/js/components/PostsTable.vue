@@ -18,7 +18,9 @@
         },
         name: "PostsTable",
         mounted() {
-            this.$store.dispatch("GET_POSTS");
+            if(!this.posts.length) {
+                this.$store.dispatch("GET_POSTS");
+            }
         },
         computed: {
             ...mapGetters(["posts"]),
